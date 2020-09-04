@@ -25,16 +25,16 @@ form.addEventListener('submit', (e) => {
   editBtn.innerText = "Edit"
   li.appendChild(editBtn)
   deleteTask(button);
-  editTask(editBtn);
+  // editTask(editBtn);
   ul.appendChild(li);
   form.reset(); 
 })
-function editTask(editBtn){
-  editBtn.addEventListener('click', (e) =>{
-    alert("Edit!");
-  })
+// function editTask(editBtn){
+//   editBtn.addEventListener('click', (e) =>{
+//     alert("Edit!");
+//   })
   
-}
+// }
 
 function deleteTask(button){
   button.addEventListener('click', (e) => {
@@ -42,32 +42,21 @@ function deleteTask(button){
   })
 }
 
-// const h2 = document.querySelector("h2")
-// const sortButton = document.createElement('button');
-// sortButton.innerText = "Sort"
-// h2.appendChild(sortButton); 
+const h2 = document.querySelector("h2")
+const sortButton = document.createElement('button');
+sortButton.innerText = "Sort"
+h2.appendChild(sortButton); 
+
+sortButton.addEventListener('click', () => {
+  sortByPriority(); 
+})
 
 
-// sortButton.addEventListener('click', (e) => {
-//   let lis = Array.prototype.slice.apply(
-//     document.querySelectorAll("li"));
-//   console.log(lis);
-//   lis.sort(function (a, b) {
-//     let aCat = a.getElementsByTagName("category")[0].childNodes[0].nodeValue;
-//     let bCat = b.getElementsByTagName("category")[0].childNodes[0].nodeValue;
-//     if (aCat > bCat) return 1;
-//     if (aCat < bCat) return -1;
-//     return 0;
-//     })
-//   })
-// textContent: "am working? x"
-
-// function sortByPriority(){
-//   Array.from(ul.getElementsByTagName("LI"))
-//     // .sort((a,b) => a.textContent.localeCompare(b.textContent))
-//     .forEach(li => ul.appendChild(li));
-//     // ul.appendChild(li)
-// }
+function sortByPriority(){
+  const arr = Array.from(ul.getElementsByTagName("LI"))
+    .sort((b, a) => a.style.color.localeCompare(b.style.color))
+    arr.forEach(li => ul.appendChild(li));
+}
 
 
 
