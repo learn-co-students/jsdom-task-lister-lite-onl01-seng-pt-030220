@@ -13,9 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   ulTasks.addEventListener("click", (e) => {
+    console.log(e.target)
     if (e.target.tagName === "BUTTON"){
       //console.log("test")
-      e.target.remove()
+      console.log(e.target.tagName)
+      e.target.parentElement.remove()
     }
   })
 
@@ -25,13 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     li.innerText = text
     li.innerHTML += `<button data-description="delete">X</button>`
     ulTasks.appendChild(li)
-
-
   }
 
   addButtonForm.addEventListener("submit", (e) => {
     e.preventDefault();
     addText(e.target["new-task-description"].value);
+
     //document.querySelector("#create-task-form")["new-task-description"].value
     addButtonForm.reset()
 
