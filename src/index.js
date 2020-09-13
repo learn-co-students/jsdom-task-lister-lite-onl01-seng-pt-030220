@@ -5,23 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('form').addEventListener('submit',
     function(event) {
       event.preventDefault();
-      console.log('Prevent Default works.');
 
       let userInput = document.getElementById('new-task-description').value;
+      let ulTag = document.getElementById('tasks');
+      let li = document.createElement('li');
+      let liText = document.createTextNode(userInput);
 
       if (userInput === '') {
         alert('Task is empty');
       } else {
-        let li = document.createElement('li')
-        let liNode = document.createTextNode(userInput);
-        li.appendChild(liNode);
-        document.getElementById('tasks').appendChild(li)
+        li.appendChild(liText);
+        ulTag.appendChild(li);
       };
 
-      document.getElementById('new-task-description').value = '';
+      event.target.reset();
     });
-
-
-  document.querySelector('').addEventListener
 
 });
